@@ -11,7 +11,6 @@ import { WeatherCard } from "../components/weather/weather-card";
 import { EmptyState } from "../components/common/empty-state";
 import { ForecastCard } from "../components/weather/forecast-card";
 import { useCurrentLocation } from "../hooks/useCurrentLocation";
-import { useLocation } from "react-router-dom";
 
 export default function WeatherApp() {
   const [isDark, setIsDark] = useState(false);
