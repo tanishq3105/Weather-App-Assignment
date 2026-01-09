@@ -1,65 +1,126 @@
-import Image from "next/image";
+import { Sun, ArrowRight } from "lucide-react";
+import Link from "next/link";
+
+export const metadata = {
+  title: "Weather - Know what to expect",
+  description:
+    "Beautiful, accurate weather forecasts. Simple. Intuitive. Always there when you need it.",
+};
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <div
+      className="min-h-screen bg-white flex items-center justify-center px-6 relative overflow-hidden"
+      style={{
+        background: "linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%)",
+      }}
+    >
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+        <div
+          className="absolute top-0 right-0 rounded-full blur-3xl opacity-40"
+          style={{
+            width: "500px",
+            height: "500px",
+            background:
+              "radial-gradient(circle, rgb(96, 165, 250) 0%, transparent 70%)",
+          }}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+        <div
+          className="absolute bottom-0 left-0 rounded-full blur-3xl opacity-20"
+          style={{
+            width: "400px",
+            height: "400px",
+            background:
+              "radial-gradient(circle, rgb(34, 211, 238) 0%, transparent 70%)",
+          }}
+        />
+      </div>
+
+      <div className="max-w-2xl mx-auto text-center space-y-12">
+        <div
+          className="flex justify-center"
+          style={{ animation: "float 4s ease-in-out infinite" }}
+        >
+          <div className="relative">
+            <div
+              className="absolute inset-0 rounded-3xl blur-2xl opacity-20"
+              style={{
+                background: "linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%)",
+              }}
+            />
+            <div
+              className="relative p-6 rounded-3xl"
+              style={{
+                background: "linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%)",
+              }}
+            >
+              <Sun className="w-20 h-20 text-blue-500" strokeWidth={1.2} />
+            </div>
+          </div>
+        </div>
+
+        <div className="space-y-4">
+          <h1 className="text-6xl md:text-7xl font-light tracking-tight text-gray-950 leading-tight">
+            The weather,
+            <br />
+            <span
+              className="font-extralight block"
+              style={{
+                background: "linear-gradient(90deg, #3b82f6 0%, #06b6d4 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              reimagined
+            </span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+        </div>
+
+        <p className="text-lg md:text-xl font-light text-gray-600 leading-relaxed max-w-lg mx-auto">
+          Stop checking multiple apps. One beautiful, intuitive interface tells
+          you everything you need to know.
+        </p>
+
+        <div className="pt-8">
+          <Link
+            href="/weather"
+            className="inline-flex items-center justify-center gap-3 px-8 py-4 text-white rounded-2xl font-medium transition-all duration-200 hover:shadow-xl active:scale-95"
+            style={{
+              background: "linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)",
+              boxShadow: "0 10px 25px -5px rgba(59, 130, 246, 0.3)",
+            }}
+          >
+            <span>Try Now</span>
+            <ArrowRight
+              className="w-5 h-5 transition-transform group-hover:translate-x-1"
+              strokeWidth={2}
+            />
+          </Link>
+        </div>
+
+        <div className="pt-8 space-y-4 text-sm text-gray-600">
+          <div className="flex items-center justify-center gap-2">
+            <div className="w-1 h-1 rounded-full bg-blue-500" />
+            <span>Real-time accuracy</span>
+            <div className="w-1 h-1 rounded-full bg-blue-500" />
+          </div>
+          <p className="font-light text-gray-500">
+            Beautiful • Fast • Reliable
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </div>
+
+      <style>{`
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-16px);
+          }
+        }
+      `}</style>
     </div>
   );
 }
